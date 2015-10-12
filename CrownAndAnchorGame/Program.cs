@@ -10,27 +10,6 @@ namespace CrownAndAnchorGame
     {
         static void Main(string[] args)
         {
-            Dice d1 = new Dice();
-            Dice d2 = new Dice();
-            Dice d3 = new Dice();
-
-            Player p = new Player("Fred", 100);
-            Console.WriteLine(p);
-            Console.WriteLine();
-
-            Console.WriteLine("New game for {0}", p.Name);
-            Game g = new Game(d1, d2, d3);
-            IList<DiceValue> cdv = g.CurrentDiceValues;
-            Console.WriteLine("Current dice values : {0} {1} {2}", cdv[0], cdv[1], cdv[2]);
-
-            DiceValue rv = Dice.RandomValue;
-
-            Random random = new Random();
-            int bet = 5;
-            p.Limit = 0;
-            int winnings = 0;
-            DiceValue pick = Dice.RandomValue;
-
             int totalWins = 0;
             int totalLosses = 0;
 
@@ -40,14 +19,28 @@ namespace CrownAndAnchorGame
                 int loseCount = 0;
                 for (int i = 0; i < 100; i++)
                 {
-                    p = new Player("Fred", 100);
+                    //Create a player and give him initial balance and write it to console
+                    Dice d1 = new Dice();
+                    Dice d2 = new Dice();
+                    Dice d3 = new Dice();
+                    Player p = new Player("Fred", 100);
                     Console.Write("Start Game {0}: ", i);
                     Console.WriteLine("{0} starts with balance {1}", p.Name, p.Balance);
-                    int turn = 0;
+                    //Player pics a face and write to console
+
+                    Game g = new Game(d1, d2, d3);
+                    IList<DiceValue> cdv = g.CurrentDiceValues;int turn = 0;
+                    int bet = 5;
+                    p.Limit = 0;
+                    int winnings = 0;
                     while (p.balanceExceedsLimitBy(bet) && p.Balance < 200)
                     {
+
                         try
                         {
+                            DiceValue pick = Dice.RandomValue;
+                            Console.WriteLine("Player Picked " + pick);
+                            
                             winnings = g.playRound(p, pick, bet);
                             cdv = g.CurrentDiceValues;
 
@@ -67,7 +60,6 @@ namespace CrownAndAnchorGame
                         {
                             Console.WriteLine("{0}\n\n", e.Message);
                         }
-                        pick = Dice.RandomValue;
                         winnings = 0;
                         turn++;
                     } //while
