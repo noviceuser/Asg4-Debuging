@@ -59,7 +59,8 @@ namespace CrownAndAnchorGame
 
         public DiceValue roll()
         {
-            return RandomValue;
+            currentValue = RandomValue;
+            return currentValue;
         }
 
     }

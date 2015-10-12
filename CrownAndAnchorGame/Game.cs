@@ -37,21 +37,36 @@ namespace CrownAndAnchorGame
             if (player == null) throw new ArgumentException("Pick cannot be null");
             if (bet < 0) throw new ArgumentException("Bet cannot be negative");
 
+
             player.takeBet(bet);
 
+            // start with zero matches
             int matches = 0;
             for (int i = 0; i < dice.Count; i++)
             {
                 dice[i].roll();
-                if (values[i].Equals(pick)) matches += 1;
+                if (dice[i].CurrentValue == pick)
+                    { 
+                        matches += 1;
+                    }
+                values[i] = dice[i].CurrentValue;
             }
 
-            int winnings = matches * bet;
+
+
+            int winnings = 0;
+
             if (matches > 0)
             {
+                winnings = (matches * bet) + bet;
+                
                 player.receiveWinnings(winnings);
             }
-
+            else
+            {
+                winnings = -5;
+            }
+            Console.WriteLine("there were {0} matches", matches);
             return winnings;
         }
     }

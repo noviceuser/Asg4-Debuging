@@ -10,6 +10,7 @@ namespace CrownAndAnchorGame
     {
         static void Main(string[] args)
         {
+            // Initialise starting total variables for wins and losses
             int totalWins = 0;
             int totalLosses = 0;
 
@@ -23,14 +24,20 @@ namespace CrownAndAnchorGame
                     Dice d1 = new Dice();
                     Dice d2 = new Dice();
                     Dice d3 = new Dice();
+                    //Create a new game and give it the 3 dice
+                    Game g = new Game(d1, d2, d3);                    
+                    //Create a new player and bet amount
                     Player p = new Player("Fred", 100);
                     Console.Write("Start Game {0}: ", i);
                     Console.WriteLine("{0} starts with balance {1}", p.Name, p.Balance);
-                    //Player pics a face and write to console
 
-                    Game g = new Game(d1, d2, d3);
-                    IList<DiceValue> cdv = g.CurrentDiceValues;int turn = 0;
+                    //Initialise turn counter
+                    int turn = 0;
+
+                    //initialise bet amount
                     int bet = 5;
+
+                    //initalise player limit
                     p.Limit = 0;
                     int winnings = 0;
                     while (p.balanceExceedsLimitBy(bet) && p.Balance < 200)
@@ -38,11 +45,15 @@ namespace CrownAndAnchorGame
 
                         try
                         {
+                            Console.WriteLine();
+                            //Player pics a face and write to console
                             DiceValue pick = Dice.RandomValue;
-                            Console.WriteLine("Player Picked " + pick);
+                            Console.WriteLine("Player {0} Picked {1}", p.Name, pick);
                             
+                            //play a game
+                            IList<DiceValue>cdv = g.CurrentDiceValues;
                             winnings = g.playRound(p, pick, bet);
-                            cdv = g.CurrentDiceValues;
+
 
                             Console.WriteLine("Rolled {0} {1} {2}", cdv[0], cdv[1], cdv[2]);
                             if (winnings > 0)
