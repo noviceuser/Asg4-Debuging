@@ -30,7 +30,7 @@ namespace CrownAndAnchorGame.Tests
             int bet = 5;
             int winnings = Gamemock.playRound(p, pick, bet);
 
-            Assert.AreEqual(winnings, 20);
+            Assert.AreEqual(20, winnings);
         }
 
         [TestMethod()]
@@ -52,7 +52,7 @@ namespace CrownAndAnchorGame.Tests
             int bet = 5;
             int winnings = Gamemock.playRound(p, pick, bet);
 
-            Assert.AreEqual(winnings, 15);
+            Assert.AreEqual(15, winnings);
         }
 
         [TestMethod()]
@@ -76,7 +76,7 @@ namespace CrownAndAnchorGame.Tests
             int bet = 5;
             int winnings = Gamemock.playRound(p, pick, bet);
 
-            Assert.AreEqual(winnings, 10);
+            Assert.AreEqual(10, winnings);
         }
 
         [TestMethod()]
@@ -140,9 +140,7 @@ namespace CrownAndAnchorGame.Tests
             int bet = 5;
             int winnings = Gamemock.playRound(p, pick, bet);
 
-            String Message = "No_Matched_Dice_Test: Expecting value -5. Recieving value " + winnings;
-            Trace.WriteLine(Message);
-            Assert.AreEqual(winnings, -5, Message);
+            Assert.AreEqual(-5, winnings);
         }
     }
 }
