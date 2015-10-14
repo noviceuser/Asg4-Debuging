@@ -44,7 +44,7 @@ namespace CrownAndAnchorGame
             int matches = 0;
             for (int i = 0; i < dice.Count; i++)
             {
-                dice[i].roll();
+                //dice[i].roll();
                 if (dice[i].CurrentValue == pick)
                     { 
                         matches += 1;
@@ -58,8 +58,8 @@ namespace CrownAndAnchorGame
 
             if (matches > 0)
             {
-                winnings = (matches * bet) + bet;
-                
+                winnings = (matches * bet);
+                //winnings = (matches * bet) + bet;
                 player.receiveWinnings(winnings);
             }
             else
