@@ -84,6 +84,7 @@ namespace CrownAndAnchorGame
                 totalWins += winCount;
                 totalLosses += loseCount;
 
+                Console.WriteLine("Press q to quit");
                 string ans = Console.ReadLine();
                 if (ans.Equals("q")) break;
             } //while true
