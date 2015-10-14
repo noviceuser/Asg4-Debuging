@@ -41,5 +41,12 @@ namespace CrownAndAnchorGame.Tests
             p1.Limit = 100;
             Assert.IsTrue(p1.balanceExceedsLimitBy(-1));
         }
+
+        [TestMethod()]
+        public void balanceExceedsLimitByTeststeady()
+        {
+            p1.Limit = 100;
+            Assert.IsTrue(p1.balanceExceedsLimitBy(0));
+        }
     }
 }
