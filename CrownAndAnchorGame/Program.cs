@@ -41,9 +41,10 @@ namespace CrownAndAnchorGame
                     p.Limit = 0;
                     int winnings = 0;
                     while (p.balanceExceedsLimitBy(bet) && p.Balance < 200)
-                    {
+                    //while (p.balanceExceedsLimit() && p.Balance < 200)
+                        {
 
-                        try
+                            try
                         {
                             Console.WriteLine();
                             //Player pics a face and write to console

@@ -57,6 +57,11 @@ namespace CrownAndAnchorGame
         {
             if (bet < 0) throw new ArgumentException("WTF? Bet cannot be negative");
             if (!balanceExceedsLimitBy(bet)) throw new ArgumentException("Placing bet would go below limit");
+            if (balance == 5)
+            {
+                Console.WriteLine();
+            }
+
             balance = balance - bet;
         }
 
