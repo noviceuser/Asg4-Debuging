@@ -58,8 +58,8 @@ namespace CrownAndAnchorGame
 
             if (matches > 0)
             {
-                winnings = (matches * bet);
-                //winnings = (matches * bet) + bet;
+                //winnings = (matches * bet);  //Error in this line
+                winnings = (matches * bet) + bet;
                 player.receiveWinnings(winnings);
             }
             else
