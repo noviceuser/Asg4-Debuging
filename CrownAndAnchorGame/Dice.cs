@@ -30,8 +30,8 @@ namespace CrownAndAnchorGame
         {
             get
             {
-                return (DiceValue)VALUES.GetValue(RANDOM.Next(VALUES.Length-1));
-                //return (DiceValue)VALUES.GetValue(RANDOM.Next(VALUES.Length));
+                //return (DiceValue)VALUES.GetValue(RANDOM.Next(VALUES.Length-1));
+                return (DiceValue)VALUES.GetValue(RANDOM.Next(VALUES.Length));
             }
         }
 
